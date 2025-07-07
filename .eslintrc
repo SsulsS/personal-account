@@ -1,0 +1,78 @@
+{
+  "extends": ["react-app"],
+  "rules": {
+    "no-console": "warn",
+    "quotes": ["error", "single"],
+    "jsx-quotes": ["error", "prefer-double"],
+    "prefer-const": "error",
+    "no-void": "error",
+    "no-implicit-coercion": "error",
+    "semi": ["error", "always"],
+    "curly": ["error", "all"],
+    "react/destructuring-assignment": ["error", "always"],
+    "react/jsx-curly-brace-presence": ["error", "never"],
+    "eol-last": ["error", "always"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+      },
+      { "selector": "interface", "format": ["PascalCase"], "prefix": ["I"] },
+      { "selector": "typeAlias", "format": ["PascalCase"], "prefix": ["T"] }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["external", "internal", "sibling"],
+        "pathGroups": [
+          {
+            "pattern": "{store,store/**}",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "api/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "{utils,types,constants,hooks}/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "styles/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "assets/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "ui-kit/**",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "pages/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "max-lines": ["warn", { "max": 300 }]
+      }
+    }
+  ]
+}
